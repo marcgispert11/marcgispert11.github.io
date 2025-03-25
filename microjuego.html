@@ -4,12 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Microjuego</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+
+        let numeroRandom = Math.floor(Math.random()*100)+1;
+
+        let contador = 0;
+
+        function compara_numero(){
+            
+            contador++;
+            
+            let numeroUsuario = document.getElementById("numero").value;
+
+
+            let resultado = document.getElementById("resultado");
+
+
+            let numeroUsuario_input = document.getElementById("numero");
+
+        
+
+            if (numeroUsuario > numeroRandom) {
+                resultado.innerHTML = "<em class=\"error\">¡El numero a adivinar <strong>es más pequeño que </strong> "+numeroUsuario+"!</em>";
+                 //resultado.style.color = "#ff0000";
+
+        } else if (numeroUsuario < numeroRandom){
+            resultado.innerHTML= "<em class=\"error\">¡El numero a adivinar <strong>es más grande que </strong> "+numeroUsuario+"!</em>";
+           //resultado.style.color = "#ff0000";
+        }
+        
+        else {resultado.innerHTML= "<em class=\"you-win\"> <strong>¡Lo has adivinado, el numero es </strong> "+numeroUsuario+"</em>";
+        //resultado.style.color = "#00ff00";    
+        }
+
+        numeroUsuario_input.value = "";
+        numeroUsuario_input.focus();
+
+        
+    }
+
+
+
+    </script>
 </head>
 <body>
 
     <header>
         <h1>Microjuego</h1>
-        <nav>
+        <nav class="barra_navegacion">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="cv.html">CV</a></li>
@@ -23,9 +66,15 @@
     <main>
         <form>
             
+            <h2>¡Adivina el numero que he generado. Es un numero entre el <strong>1</strong> y el <strong>100</strong>!</h2>
+            
             <label for="numero">Tú numero</label>
+
+            <p id ="resultado"></p>
+           
             <input type="number" id="numero" name="numero">
-            <button id="submit">Comprobar</button>
+           
+            <input type="button" id="submit" value="Comprovar" onclick="compara_numero();" />"</p>
 
         </form>
     </main>
