@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #5e94db;
     color: #333;
 }
 
@@ -17,11 +17,12 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 30px;
+
 }
 
 /* Estilo del menú de navegación */
-nav ul {
+.barra_navegacion {
     list-style: none;
     padding: 0;
     margin: 10px 0 0;
@@ -43,7 +44,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Para que cambie el color al pasar el mouse */
+    background-color: rgba(33, 44, 51, 0.2); /* Para que cambie el color al pasar el mouse */
 }
 
 /* Estilo del main */
@@ -83,3 +84,4 @@ footer {
 
     color: #00ff00;
 }
+
