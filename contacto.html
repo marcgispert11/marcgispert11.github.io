@@ -8,6 +8,8 @@
 </head>
 <body>
 
+
+
     <header>
         <h1>Contacto</h1>
         <nav class="barra_navegacion">
@@ -22,7 +24,56 @@
     </header>
 
     <main>
+        <section>
+            <h2>Formulario de Contacto</h2>
+
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" class="formulario-contacto" required> 
+             
+            <label for="email">Correo Electronico</label>
+            <input type="email" id="email" name="email" class="formulario-contacto"required>
+            
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" class="texto-formulario-contacto" required></textarea>
+
+            <button type="submit" id="boton-formulario">Enviar</button>
+        </section>
+
+        <script>
         
+            // Poner * en los campos si estan vacios y mensaje de error
+    
+            let boton = document.getElementById("boton-formulario");
+            let nombre = document.getElementById("nombre");
+            let email = document.getElementById("email");
+            let mensaje = document.getElementById("mensaje");
+    
+            boton.addEventListener("click", function(event){
+                event.preventDefault();
+    
+                if (nombre.value === "") {
+                    nombre.classList.add("error");
+                    nombre.placeholder = "Campo obligatorio";
+                } else {
+                    nombre.classList.remove("error");
+                }
+    
+                if (email.value === "") {
+                    email.classList.add("error");
+                    email.placeholder = "Campo obligatorio";
+                } else {
+                    email.classList.remove("error");
+                }
+    
+                if (mensaje.value === "") {
+                    mensaje.classList.add("error");
+                    mensaje.placeholder = "Campo obligatorio";
+                } else {
+                    mensaje.classList.remove("error");
+                }
+            });
+    
+        </script>
     </main>
 
     <footer>
