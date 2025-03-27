@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Microjuego</title>
     <link rel="stylesheet" href="styles.css">
+
     <script>
-
-        let numeroRandom = Math.floor(Math.random()*100)+1;
-
+        let numeroRandom = Math.floor(Math.random() * 100) + 1; // Generar número aleatorio
         let contador = 0;
 
         function compara_numero(){
@@ -16,36 +15,32 @@
             contador++;
             
             let numeroUsuario = document.getElementById("numero").value;
-
-
-            let resultado = document.getElementById("resultado");
-
-
             let numeroUsuario_input = document.getElementById("numero");
-
-        
+            let resultado = document.getElementById("resultado"); // Def Resultado
+            let boton = document.getElementById("submit");
 
             if (numeroUsuario > numeroRandom) {
-                resultado.innerHTML = "<em class=\"error\">¡El numero a adivinar <strong>es más pequeño que </strong> "+numeroUsuario+"!</em>";
-                 //resultado.style.color = "#ff0000";
+                resultado.innerHTML = "<em class=\"error\">¡El numero a adivinar <strong>es más pequeño que </strong> "+numeroUsuario+"!</em>"
+                boton.classList.add("borde-error"); // Poner borde rojo 
+            } else if (numeroUsuario < numeroRandom){
+                resultado.innerHTML= "<em class=\"error\">¡El numero a adivinar <strong>es más grande que </strong> "+numeroUsuario+"!</em>";
+                boton.classList.add("borde-error"); 
+            } else {
+                resultado.innerHTML= "<em class=\"you-win\"> <strong>¡Lo has adivinado, el numero es </strong> "+numeroUsuario+"</em>";
+                boton.classList.remove("borde-error"); // Quitar borde rojo 
+                boton.disabled = true; // Deshabilitar boton
+                return;
+            }
 
-        } else if (numeroUsuario < numeroRandom){
-            resultado.innerHTML= "<em class=\"error\">¡El numero a adivinar <strong>es más grande que </strong> "+numeroUsuario+"!</em>";
-           //resultado.style.color = "#ff0000";
+            if (contador >= 10) {
+                resultado.innerHTML = "<em class=\"error\">¡Has perdido! El número era <strong>"+numeroRandom+"</strong>. Intenta de nuevo.</em>";
+                boton.disabled = true; 
+                boton.classList.remove("borde-error"); 
+            }
+
+            numeroUsuario_input.value = "";
+            numeroUsuario_input.focus();
         }
-        
-        else {resultado.innerHTML= "<em class=\"you-win\"> <strong>¡Lo has adivinado, el numero es </strong> "+numeroUsuario+"</em>";
-        //resultado.style.color = "#00ff00";    
-        }
-
-        numeroUsuario_input.value = "";
-        numeroUsuario_input.focus();
-
-        
-    }
-
-
-
     </script>
 </head>
 <body>
@@ -74,7 +69,7 @@
            
             <input type="number" id="numero" name="numero">
            
-            <input type="button" id="submit" value="Comprovar" onclick="compara_numero();" />"</p>
+            <input type="button" id="submit" value="Comprovar" onclick="compara_numero();" />
 
         </form>
     </main>

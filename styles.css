@@ -43,21 +43,20 @@ nav ul li a {
     transition: background 0.5s;
 }
 
+
 nav ul li a:hover {
-    background-color: rgba(33, 44, 51, 0.2); /* Para que cambie el color al pasar el mouse */
+    background-color: rgba(51, 166, 238, 0.2); /* Para que cambie el color al pasar el mouse */
 }
 
-/* Estilo del main */
 main {
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
-    background: white;
+    background: rgba(173, 221, 60, 0.986);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos de titulos de nivel 2 y parrafos */
 h2 {
     color: #0078D7;
 }
@@ -85,3 +84,7 @@ footer {
     color: #00ff00;
 }
 
+
+.borde-error {
+    border: 2px solid red;
+}
