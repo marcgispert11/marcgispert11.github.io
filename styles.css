@@ -1,14 +1,35 @@
+:root {
+    --color-fondo: rgb(13, 19, 33);
+    --color-texto: white;
+    --color-enlace: rgb(51, 166, 238);
+    --color-enlace-hover: rgba(51, 166, 238, 0.2);
+    --color-boton: rgb(13, 19, 33);
+    --color-boton-hover: rgb(51, 166, 238);
+    --color-boton-texto: white;
+}
+
+.light-mode {
+    --color-fondo: white;
+    --color-texto: black;
+    --color-enlace: rgb(51, 166, 238);
+    --color-enlace-hover: rgba(51, 166, 238, 0.2);
+    --color-boton: white;
+    --color-boton-hover: rgb(51, 166, 238);
+    --color-boton-texto: black;
+}
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: rgb(13, 19, 33);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    transition: background-color 0.3s, color 0.3s;
 }
 
-
 header {
-    background-color: rgb(29, 45, 68); 
+    background-color: var(--color-fondo);
     color: white;
     text-align: center;
     padding: 20px;
@@ -17,17 +38,16 @@ header {
 header h1 {
     margin: 0;
     font-size: 30px;
-
+    color: var(--color-texto);
 }
 
-/* Estilo del menu de navegación */
 .barra_navegacion {
     list-style: none;
     padding: 0;
     margin: 10px 0 0;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 25px;
 }
 
 nav ul li {
@@ -36,15 +56,14 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: var(--color-texto);
     padding: 10px 15px;
     border-radius: 5px;
     transition: background 0.5s;
 }
 
-
 nav ul li a:hover {
-    background-color: rgba(51, 166, 238, 0.2); /* Para que cambie el color al pasar el mouse */
+    background-color: var(--color-enlace-hover);
 }
 
 main {
@@ -55,13 +74,18 @@ main {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     color: white;
+    transition: background-color 0.3s;
+}
+
+.light-mode main {
+    background: rgb(230, 230, 230);
+    color: black;
 }
 
 p {
     line-height: 1.6;
 }
 
-/* Estilo del footer */
 footer {
     text-align: center;
     background-color: rgb(13, 19, 33);
@@ -70,21 +94,52 @@ footer {
     margin-top: 200px;
 }
 
-
-.error {
-    color: #ff0000;
+/* Botón modo claro/oscuro */
+.boton-light-mode {
+    background-color: var(--color-boton);
+    color: var(--color-boton-texto);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-.you-win{
-
-    color: #00ff00;
+.boton-light-mode:hover {
+    background-color: var(--color-boton-hover);
 }
 
-
-.borde-error {
-    border: 2px solid red;
+/* FORMULARIO CONTACTO */
+.formulario-contacto {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #0057da;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
 }
 
+.texto-formulario-contacto {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #005fee;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-size: 16px;
+}
+
+.light-mode .formulario-contacto,
+.light-mode .texto-formulario-contacto {
+    background-color: white;
+    color: black;
+}
+
+/* SECCIÓN */
 section h2 {
     color: rgb(116, 140, 171);
     margin-top: 10px;
@@ -95,28 +150,24 @@ section h2 {
     font-size: xx-large;
 }
 
-
-.formulario-contacto  {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #0057da;
-    
+/* CONTACTO */
+.caja-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
 }
 
-.texto-formulario-contacto {
-
-    width: 100%;
-    height: 100px;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #005fee;
-}
-
+/* ERRORES */
 .error {
+    color: #ff0000;
+}
 
-    border: 1px solid red;
-    border-style: solid;
+.you-win {
+    color: #00ff00;
+}
+
+.borde-error {
+    border: 2px solid red;
 }
